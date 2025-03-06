@@ -50,23 +50,23 @@
 		{
 			"id": "pointer:pointer",
 			"typeName": "pointer",
-			"x": 991.66796875,
-			"y": 556.0909444086028,
-			"lastActivityTimestamp": 1741186557647,
+			"x": -13.507841476806334,
+			"y": 646.5747111069709,
+			"lastActivityTimestamp": 1741226495112,
 			"meta": {}
 		},
 		{
 			"followingUserId": null,
 			"opacityForNextShape": 1,
 			"stylesForNextShape": {
-				"tldraw:geo": "ellipse",
-				"tldraw:color": "yellow",
-				"tldraw:textAlign": "middle"
+				"tldraw:geo": "rectangle",
+				"tldraw:color": "orange",
+				"tldraw:textAlign": "start"
 			},
 			"brush": null,
 			"scribbles": [],
 			"cursor": {
-				"type": "default",
+				"type": "cross",
 				"rotation": 0
 			},
 			"isFocusMode": false,
@@ -77,7 +77,7 @@
 				"x": 0,
 				"y": 0,
 				"w": 1702,
-				"h": 856
+				"h": 813
 			},
 			"insets": [
 				false,
@@ -108,9 +108,9 @@
 			"editingShapeId": null,
 			"croppingShapeId": null,
 			"selectedShapeIds": [
-				"shape:SCtxojoJ5pFa_kdX8GHfq"
+				"shape:seaVhLLq3FAtaB80TxxVG"
 			],
-			"hoveredShapeId": "shape:AUMtV_Jr9R3tDoA0HzLN8",
+			"hoveredShapeId": null,
 			"erasingShapeIds": [],
 			"hintingShapeIds": [],
 			"focusedGroupId": null,
@@ -120,8 +120,8 @@
 			"typeName": "instance_page_state"
 		},
 		{
-			"x": 8.06640625,
-			"y": -216.96594440860287,
+			"x": 926.8867477268063,
+			"y": -65.37549235697094,
 			"z": 1,
 			"meta": {},
 			"id": "camera:page:page",
@@ -4198,6 +4198,59 @@
 			},
 			"parentId": "page:page",
 			"index": "aW88b",
+			"typeName": "shape"
+		},
+		{
+			"x": -814.6518348346762,
+			"y": 206.8704901678127,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:b25_ULc7JUW_FrnjfjIsp",
+			"type": "text",
+			"props": {
+				"color": "red",
+				"size": "m",
+				"w": 606.5625,
+				"text": "Roadmap for the web\n-----------------------\n1. basic react app\n2. setup tailwind\n3. create app component\n4. download images from thirtysixstudio\n5. makes images in array\n6. create canvas component\n      a, load first 150 images and show in canvas\n      b, animate the canvas\n      c, make canvas dynamic so that it loads 150 \n            images from desired index\n      d, reuse the canvas component to create a \n            new canvas as many times as needed",
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1
+			},
+			"parentId": "page:page",
+			"index": "aX4qu",
+			"typeName": "shape"
+		},
+		{
+			"x": -843.7502799008682,
+			"y": 173.62381858007916,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:seaVhLLq3FAtaB80TxxVG",
+			"type": "geo",
+			"props": {
+				"w": 654.0250868082576,
+				"h": 520.8747497126981,
+				"geo": "rectangle",
+				"color": "grey",
+				"labelColor": "black",
+				"fill": "none",
+				"dash": "draw",
+				"size": "m",
+				"font": "draw",
+				"text": "",
+				"align": "middle",
+				"verticalAlign": "middle",
+				"growY": 0,
+				"url": "",
+				"scale": 1
+			},
+			"parentId": "page:page",
+			"index": "aY1I7",
 			"typeName": "shape"
 		}
 	]
