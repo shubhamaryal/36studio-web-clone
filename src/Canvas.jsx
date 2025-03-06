@@ -24,18 +24,17 @@ function Canvas() {
 
   useEffect(() => {
     // console.log(canvasimages); // check if the image is loading or not
-    const canvas = canvasRef.current; // fetches the canvas element so that we can work on it
+    const canvas = canvasRef.current; // fetches the canvas element using useRef hook so that we can work on it
     const ctx = canvas.getContext("2d"); // ctx is a drawing tool
-    const img = new Image();
-    img.src = canvasImages[index.value];
+    const img = new Image(); // creates new instance of Image object
+    img.src = canvasImages[index.value]; // changes the image according to the index and the index is changed by gsap
     img.onload = () => {
       // the height and width of canvas is equal to the height and width of the image
       canvas.width = img.width;
       canvas.height = img.height;
-      ctx.drawImage(img, 0, 0); // draw the image
+      ctx.drawImage(img, 0, 0); // draw the image and 0,0 indicates the position of it
     };
-  }, [index]); // when the gsap changes the value of index, the useEffect hook runs
-               // it is because useEffect has index as dependencies 
+  }, [index]); // when the gsap changes the value of index, the useEffect hook runs and it is because useEffect has index as dependencies
 
   return (
     <canvas
