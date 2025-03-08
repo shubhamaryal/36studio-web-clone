@@ -7,7 +7,7 @@ function Canvas({ details }) {
   const { startIndex, numImages, duration, size, top, left, zIndex } = details; // destructured, we can use details.startIndex too in the below codes
 
   const [index, setIndex] = useState({ value: startIndex }); // the useState hook indicates which image to be shown
-  const canvasRef = useRef(null);
+  const canvasRef = useRef(null); // useRef hook is used to access the DOM element, it is used to access the canvas element
 
   useGSAP(() => {
     gsap.to(index, {
@@ -43,6 +43,8 @@ function Canvas({ details }) {
 
   return (
     <canvas
+      data-scroll
+      data-scroll-speed={Math.random().toFixed(1)}
       ref={canvasRef}
       className="absolute"
       style={{
