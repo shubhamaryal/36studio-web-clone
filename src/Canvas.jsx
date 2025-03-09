@@ -18,9 +18,14 @@ function Canvas({ details }) {
       onUpdate: () => {
         setIndex({ value: Math.round(index.value) }); // round offs the value onUpdate
       },
-
       // onUpdate is a property of gsap, it is a callback function
       // it runs continuously through the animation, whenever gsap updates the value
+    });
+
+    gsap.from(canvasRef.current, {
+      opacity: 0,
+      duration: 1,
+      ease: "power2.inOut",
     });
   });
 
