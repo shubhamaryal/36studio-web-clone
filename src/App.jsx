@@ -48,6 +48,11 @@ const App = () => {
               });
             },
           });
+
+          gsap.to(cursorRef.current, {
+            backgroundColor: "white",
+            ease: "power2.inOut",
+          });
         } else {
           gsap.to("body", {
             backgroundColor: "#000",
@@ -58,6 +63,11 @@ const App = () => {
           gsap.to(".text-white", {
             color: "#fff",
             duration: 1.2,
+            ease: "power2.inOut",
+          });
+
+          gsap.to(cursorRef.current, {
+            backgroundColor: "red",
             ease: "power2.inOut",
           });
         }
