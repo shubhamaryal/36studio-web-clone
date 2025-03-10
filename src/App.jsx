@@ -126,7 +126,7 @@ const App = () => {
       {/* if we map the data then all the arrays will be mapped, 
         so we need to map the data's index again to get the info of the canvas i.e. to maps the objects
         but it will again map all the objects of all arrays so to load the cavas of only first page we mapped data[0] */}
-      <div className="w-full relative min-h-screen font-['Helvetica']">
+      <div className="w-full relative min-h-screen font-['Helvetica'] border-[0.1px] border-black">
         {showCanvas &&
           data[0].map((canvasdets, index) => <Canvas details={canvasdets} />)}
 
@@ -167,6 +167,31 @@ const App = () => {
             >
               Thirtysixstudio
             </h1>
+          </div>
+        </div>
+      </div>
+
+      <div className="w-full h-screen border-[0.1px] border-black flex relative">
+        {showCanvas &&
+          data[1].map((canvasdets, index) => <Canvas details={canvasdets} />)}
+        <div className="w-[50%] h-full">
+          <h1 className="text-[20px] text-white top-23 left-128 relative">
+            01 --- WHAT WE DO
+          </h1>
+        </div>
+        <div className="w-[50%] h-full">
+          <div className="text-white text-4xl font-light leading-[1.2] pt-23 pl-48 w-[60%]">
+            We aim to elevate digital production in the advertising space,
+            bringing your ideas to life.
+          </div>
+          <div className="text-white  font-light leading-[1.2] pt-50 pl-48 w-[67%]">
+            As a contemporary studio, we use cutting-edge design practices and
+            the latest technologies to deliver current digital work.
+          </div>
+          <div className="text-white  font-light leading-[1.2] pl-48 pt-3 w-[67%]">
+            Our commitment to innovation and simplicity, paired with our agile
+            approach, ensures your journey with us is smooth and enjoyable from
+            start to finish.
           </div>
         </div>
       </div>
