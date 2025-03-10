@@ -4,6 +4,10 @@ import data from "./data";
 import LocomotiveScroll from "locomotive-scroll"; // for smooth scrolling
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+// we need to register the plugin to use scrollTrigger in the code else it will not work
 
 const App = () => {
   const [showCanvas, setShowCanvas] = useState(false);
@@ -112,6 +116,81 @@ const App = () => {
     });
   });
 
+  useGSAP(() => {
+    const tl = gsap.timeline();
+    tl.from(headingRef.current, {
+      opacity: 0,
+      duration: 1.2,
+      delay: 0.3,
+      ease: "power2.inOut",
+    });
+
+    tl.from(
+      ".textcontainer div h3, .textcontainer div p",
+      {
+        opacity: 0,
+        y: 20,
+        duration: 1,
+        stagger: 0.2,
+        ease: "power3.out",
+      },
+      "-=0.5"
+    );
+
+    tl.from(
+      ".links, .brand",
+      {
+        y: -30,
+        opacity: 0,
+        duration: 0.9,
+        stagger: 0.1,
+        ease: "back.out(1.7)",
+      },
+      "-=0.7"
+    );
+  });
+
+  useGSAP(() => {
+    var tl2 = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".section2",
+        scroller: "body",
+        start: "top 50%",
+        end: "top 0%",
+        scrub: 1.5,
+        // markers: true,
+      },
+    });
+    tl2
+      .from(".section2 div h1", {
+        y: 50,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out",
+      })
+      .from(
+        ".section2 div h3",
+        {
+          y: 40,
+          opacity: 0,
+          duration: 0.8,
+          ease: "power2.out",
+        },
+        "-=0.4"
+      )
+      .from(
+        ".section2 div p",
+        {
+          y: 30,
+          opacity: 0,
+          duration: 0.8,
+          stagger: 0.2,
+          ease: "power2.out",
+        },
+        "-=0.5"
+      );
+  });
+
   return (
     <>
       <div
@@ -132,7 +211,9 @@ const App = () => {
 
         <div className="w-full h-screen relative z-[0] text-white">
           <nav className="w-full p-8 flex justify-between z-50">
-            <div className="brand text-2xl font-regular">Thirtysixstudios</div>
+            <div className="brand text-2xl font-regular cursor-pointer">
+              Thirtysixstudios
+            </div>
             <div className="links flex gap-10">
               {[
                 "What we do",
@@ -140,7 +221,10 @@ const App = () => {
                 "How we give back",
                 "Talk to us",
               ].map((link, index) => (
-                <a key={index} className="text-md hover:text-gray-300">
+                <a
+                  key={index}
+                  className="text-md cursor-pointer relative pb-[5px] after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:w-0 after:h-[3px] after:bg-black after:transition-all after:duration-300 after:ease-in-out after:-translate-x-1/2 hover:after:w-full"
+                >
                   {link}
                 </a>
               ))}
@@ -171,28 +255,28 @@ const App = () => {
         </div>
       </div>
 
-      <div className="w-full h-screen border-[0.1px] border-black flex relative">
+      <div className="section2 w-full h-screen border-[0.1px] border-black flex relative">
         {showCanvas &&
           data[1].map((canvasdets, index) => <Canvas details={canvasdets} />)}
-        <div className="w-[50%] h-full">
+        <div className="w-[50%] h-full z-[0]">
           <h1 className="text-[20px] text-white top-23 left-128 relative">
             01 --- WHAT WE DO
           </h1>
         </div>
         <div className="w-[50%] h-full">
-          <div className="text-white text-4xl font-light leading-[1.2] pt-23 pl-48 w-[60%]">
+          <h3 className="text-white text-4xl font-light leading-[1.2] pt-23 pl-48 w-[60%]">
             We aim to elevate digital production in the advertising space,
             bringing your ideas to life.
-          </div>
-          <div className="text-white  font-light leading-[1.2] pt-50 pl-48 w-[67%]">
+          </h3>
+          <p className="text-white  font-light leading-[1.2] pt-50 pl-48 w-[67%]">
             As a contemporary studio, we use cutting-edge design practices and
             the latest technologies to deliver current digital work.
-          </div>
-          <div className="text-white  font-light leading-[1.2] pl-48 pt-3 w-[67%]">
+          </p>
+          <p className="text-white  font-light leading-[1.2] pl-48 pt-3 w-[67%]">
             Our commitment to innovation and simplicity, paired with our agile
             approach, ensures your journey with us is smooth and enjoyable from
             start to finish.
-          </div>
+          </p>
         </div>
       </div>
     </>
