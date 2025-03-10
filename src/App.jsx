@@ -10,6 +10,7 @@ const App = () => {
 
   const headingRef = useRef(null);
   const growingSpanRef = useRef(null);
+  const cursorRef = useRef(null);
 
   useEffect(() => {
     const locomotiveScroll = new LocomotiveScroll(); // make the scrolling smooth
@@ -74,12 +75,44 @@ const App = () => {
     }
   }, []);
 
+  useGSAP(() => {
+    window.addEventListener("mousemove", (e) => {
+      gsap.to(cursorRef.current, {
+        x: e.clientX,
+        y: e.clientY,
+        duration: 1,
+        ease: "power2.out",
+        opacity: 1,
+      });
+    });
+
+    headingRef.current.addEventListener("mouseenter", () => {
+      gsap.to(cursorRef.current, {
+        scale: 5,
+        duration: 0.4,
+        ease: "power2.out",
+      });
+    });
+
+    headingRef.current.addEventListener("mouseleave", () => {
+      gsap.to(cursorRef.current, {
+        scale: 1,
+        duration: 0.4,
+      });
+    });
+  });
+
   return (
     <>
+      <div
+        ref={cursorRef}
+        className="customcursor bg-red-500 h-5 w-5 rounded-full fixed opacity-0"
+      ></div>
       <span
         ref={growingSpanRef}
         className="growing rounded-full block fixed top-[-20px] left-[-20px] w-5 h-5"
       ></span>
+
       {/* if we map the data then all the arrays will be mapped, 
         so we need to map the data's index again to get the info of the canvas i.e. to maps the objects
         but it will again map all the objects of all arrays so to load the cavas of only first page we mapped data[0] */}
